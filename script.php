@@ -1,12 +1,14 @@
 <?php
 
+    session_start();
+
     $name = $_POST['name'];
     $age = $_POST['age'];
 
     
     //validações
     if(empty($name) or empty($age)){
-        echo 'os campos devem ser preenchidos.';
+        $_SESSION['msgError'] = 'os campos devem ser preenchidos';
         return;
     }
     if(strlen($name)<3 or strlen($name) >15){
